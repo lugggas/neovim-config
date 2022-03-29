@@ -1,0 +1,6 @@
+require("options")
+require("mappings")
+require("packer-setup")
+require("treesitter")
+require("lsp-config")
+require("lualine-config")
