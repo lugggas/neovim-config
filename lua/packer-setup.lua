@@ -2,14 +2,18 @@
 local vim = vim
 local execute = vim.api.nvim_command
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+
 if fn.empty(fn.glob(install_path)) > 0 then
     execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
     execute 'packadd packer.nvim'
 end
+
 vim.cmd('packadd packer.nvim')
+
 local packer = require'packer'
 local util = require'packer.util'
+
 packer.init({
     package_root = util.join_paths(vim.fn.stdpath('data'), 'site', 'pack')
 })
@@ -18,6 +22,7 @@ packer.init({
 packer.startup(function()
     local use = use
     -- add you plugins here like:
+    use 'wbthomason/packer.nvim'
     use 'nvim-treesitter/nvim-treesitter'
     use 'sheerun/vim-polyglot'
     use {'prettier/vim-prettier', run = 'yarn install' }
@@ -28,10 +33,21 @@ packer.startup(function()
     use "jose-elias-alvarez/null-ls.nvim"
     use "jose-elias-alvarez/nvim-lsp-ts-utils"
     use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
-
+    use "ctrlpvim/ctrlp.vim"
+    use {
+        'hrsh7th/nvim-cmp',
+        requires = {
+            { 'hrsh7th/cmp-vsnip' },
+            { 'hrsh7th/vim-vsnip' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-path' },
+            { 'hrsh7th/cmp-cmdline' },
+        }
+    }
 end
 )
 

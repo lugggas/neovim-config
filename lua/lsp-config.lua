@@ -24,6 +24,7 @@ local default_config = {
         mappings.set_local_ts_mappings(bufnr)
         custom_on_attach(client, bufnr)
     end,
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 }
 -- setup language servers here
 lspconfig.tsserver.setup(default_config)
