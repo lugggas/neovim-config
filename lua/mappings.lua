@@ -25,6 +25,11 @@ key_mapper('v', 'jk', '<ESC>')
 key_mapper('v', 'JK', '<ESC>')
 key_mapper('v', 'jK', '<ESC>')
 
+-- filebrowser mappings
+key_mapper('', '<Leader>b', ':Vex<CR>')
+
+-- ctrlp mappings
+key_mapper('', '<Leader>p', ':CtrlP<CR>')
 
 -- lsp mappings
 -- key_mapper('n', 'gd', ':lua vim.lsp.buf.definition()<CR>')
