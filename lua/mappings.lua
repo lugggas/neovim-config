@@ -26,7 +26,7 @@ key_mapper('v', 'JK', '<ESC>')
 key_mapper('v', 'jK', '<ESC>')
 
 -- filebrowser mappings
-key_mapper('', '<Leader>b', ':Vex<CR>')
+key_mapper('', '<Leader>b', ':Lex<CR>')
 
 -- ctrlp mappings
 key_mapper('', '<Leader>p', ':CtrlP<CR>')
@@ -46,6 +46,7 @@ key_mapper('', '<Leader>p', ':CtrlP<CR>')
 
 function define_lsp_commands()
     vim.cmd("command! LspDef lua vim.lsp.buf.definition()")
+    vim.cmd("command! LspDec lua vim.lsp.buf.declaration()")
     vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
     vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
     vim.cmd("command! LspHover lua vim.lsp.buf.hover()")
@@ -61,7 +62,10 @@ end
 
 function set_local_lsp_mappings(bufnr)
     buf_map(bufnr, "n", "gd", ":LspDef<CR>")
+    buf_map(bufnr, "n", "gD", ":LspDec<CR>")
+    buf_map(bufnr, "n", "gi", ":LspImplementation<CR>")
     buf_map(bufnr, "n", "gr", ":LspRename<CR>")
+    buf_map(bufnr, "n", "gR", ":LspRefs<CR>")
     buf_map(bufnr, "n", "gy", ":LspTypeDef<CR>")
     buf_map(bufnr, "n", "K", ":LspHover<CR>")
     buf_map(bufnr, "n", "[a", ":LspDiagPrev<CR>")
