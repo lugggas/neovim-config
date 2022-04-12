@@ -36,7 +36,9 @@ packer.startup(function()
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
-    use "ctrlpvim/ctrlp.vim"
+    -- You don't need to install this if you already have fzf installed
+    use { "junegunn/fzf", run = "./install --all" }
+    use { "junegunn/fzf.vim" }
     use {
         'hrsh7th/nvim-cmp',
         requires = {
@@ -48,6 +50,7 @@ packer.startup(function()
             { 'hrsh7th/cmp-cmdline' },
         }
     }
+    use 'chrisbra/unicode.vim'
 end
 )
 

@@ -28,8 +28,8 @@ key_mapper('v', 'jK', '<ESC>')
 -- filebrowser mappings
 key_mapper('', '<Leader>b', ':Lex<CR>')
 
--- ctrlp mappings
-key_mapper('', '<Leader>p', ':CtrlP<CR>')
+-- ctrl+p mappings
+key_mapper('', '<Leader>p', ':GFiles<CR>')
 
 -- lsp mappings
 -- key_mapper('n', 'gd', ':lua vim.lsp.buf.definition()<CR>')

@@ -12,3 +12,15 @@ fi
 
 # install typescript
 npm install -g typescript typescript-language-server eslint_d
+
+# syntax highlightning
+brew install bat
+
+# fast grep
+brew install ripgrep
+
+# smart find
+brew install fd
+
+# better git diff
+brew install git-delta

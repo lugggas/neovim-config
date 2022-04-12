@@ -25,3 +25,5 @@ vim.cmd[[colorscheme dracula]]
 vim.g.netrw_liststyle = 3
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+vim.o.mouse = 'a'
+vim.o.mousefocus = true
