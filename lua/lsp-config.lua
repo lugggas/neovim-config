@@ -38,6 +38,11 @@ local default_config = {
 }
 -- setup language servers here
 lspconfig.tsserver.setup(default_config)
+require('rust-tools').setup({
+    server = {
+        on_attach = custom_on_attach,
+    }
+})
 
 local prefer_local = {
     prefer_local = "node_modules/.bin",

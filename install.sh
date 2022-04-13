@@ -24,3 +24,7 @@ brew install fd
 
 # better git diff
 brew install git-delta
+
+# rust-analyzer
+rustup component add rust-src
+brew install rust-analyzer
