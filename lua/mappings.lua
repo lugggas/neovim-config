@@ -13,6 +13,9 @@ local key_mapper = function(mode, key, result)
     )
 end
 
+-- remap space to nop
+key_mapper('', ' ', '<nop>')
+
 -- movement mappings
 key_mapper('', '<up>', '<nop>')
 key_mapper('', '<down>', '<nop>')
@@ -28,8 +31,10 @@ key_mapper('v', 'jK', '<ESC>')
 -- filebrowser mappings
 key_mapper('', '<Leader>b', ':Lex<CR>')
 
--- ctrl+p mappings
-key_mapper('', '<Leader>p', ':GFiles<CR>')
+-- fzf mappings
+key_mapper('', '<Leader>p', "<cmd>lua require('fzf-lua').files()<CR>")
+key_mapper('', '<Leader>f', "<cmd>lua require('fzf-lua').grep_curbuf()<CR>")
+key_mapper('', '<Leader>F', "<cmd>lua require('fzf-lua').grep_project()<CR>")
 
 -- lsp mappings
 -- key_mapper('n', 'gd', ':lua vim.lsp.buf.definition()<CR>')

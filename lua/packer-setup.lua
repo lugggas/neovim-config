@@ -38,7 +38,10 @@ packer.startup(function()
     }
     -- You don't need to install this if you already have fzf installed
     use { "junegunn/fzf", run = "./install --all" }
-    use { "junegunn/fzf.vim" }
+    use { 'ibhagwan/fzf-lua',
+      -- optional for icon support
+      requires = { 'kyazdani42/nvim-web-devicons' }
+    }
     use {
         'hrsh7th/nvim-cmp',
         requires = {
