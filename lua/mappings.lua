@@ -59,9 +59,10 @@ function define_lsp_commands()
     vim.cmd("command! LspRefs lua vim.lsp.buf.references()")
     vim.cmd("command! LspTypeDef lua vim.lsp.buf.type_definition()")
     vim.cmd("command! LspImplementation lua vim.lsp.buf.implementation()")
-    vim.cmd("command! LspDiagPrev lua vim.lsp.diagnostic.goto_prev()")
-    vim.cmd("command! LspDiagNext lua vim.lsp.diagnostic.goto_next()")
-    -- vim.cmd("command! LspDiagLine lua vim.lsp.diagnostic.open_float()")
+    vim.cmd("command! LspDiagPrev lua vim.diagnostic.goto_prev()")
+    vim.cmd("command! LspDiagNext lua vim.diagnostic.goto_next()")
+    vim.cmd("command! LspDiagShow lua vim.diagnostic.show()")
+    vim.cmd("command! LspDiagLine lua vim.diagnostic.open_float()")
     vim.cmd("command! LspSignatureHelp lua vim.lsp.buf.signature_help()")
 end
 
@@ -76,7 +77,7 @@ function set_local_lsp_mappings(bufnr)
     buf_map(bufnr, "n", "[a", ":LspDiagPrev<CR>")
     buf_map(bufnr, "n", "]a", ":LspDiagNext<CR>")
     buf_map(bufnr, "n", "ga", ":LspCodeAction<CR>")
-    -- buf_map(bufnr, "n", "<Leader>a", ":LspDiagLine<CR>")
+    buf_map(bufnr, "n", "<Leader>a", ":LspDiagLine<CR>")
     buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>")
 end
 
