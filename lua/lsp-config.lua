@@ -50,14 +50,16 @@ local prefer_local = {
 
 null_ls.setup({
     sources = {
-        -- null_ls.builtins.diagnostics.eslint,
-        -- null_ls.builtins.code_actions.eslint,
-        -- null_ls.builtins.formatting.eslint,
         null_ls.builtins.diagnostics.eslint_d.with(prefer_local),
         null_ls.builtins.code_actions.eslint_d.with(prefer_local),
         null_ls.builtins.formatting.eslint_d.with(prefer_local),
+        -- null_ls.builtins.diagnostics.eslint.with(prefer_local),
+        -- null_ls.builtins.code_actions.eslint.with(prefer_local),
+        -- null_ls.builtins.formatting.eslint.with(prefer_local),
     },
     on_attach = custom_on_attach,
+    -- debug = true,
+    -- default_timeout = 10000,
 })
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

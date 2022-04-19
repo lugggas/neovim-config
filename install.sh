@@ -11,7 +11,7 @@ else
 fi
 
 # install typescript
-npm install -g typescript typescript-language-server eslint_d
+npm install -g typescript typescript-language-server eslint_d eslint
 
 # syntax highlightning
 brew install bat
