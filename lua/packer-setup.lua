@@ -26,7 +26,7 @@ packer.startup(function()
     use 'nvim-treesitter/nvim-treesitter'
     use 'sheerun/vim-polyglot'
     use {'prettier/vim-prettier', run = 'yarn install' }
-    use 'Mofiqul/dracula.nvim'
+    use 'sainnhe/sonokai'
     use 'neovim/nvim-lspconfig'
     use 'anott03/nvim-lspinstall'
     use 'nvim-lua/plenary.nvim'

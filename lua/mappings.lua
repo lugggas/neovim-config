@@ -21,12 +21,6 @@ key_mapper('', '<up>', '<nop>')
 key_mapper('', '<down>', '<nop>')
 key_mapper('', '<left>', '<nop>')
 key_mapper('', '<right>', '<nop>')
-key_mapper('i', 'jk', '<ESC>')
-key_mapper('i', 'JK', '<ESC>')
-key_mapper('i', 'jK', '<ESC>')
-key_mapper('v', 'jk', '<ESC>')
-key_mapper('v', 'JK', '<ESC>')
-key_mapper('v', 'jK', '<ESC>')
 
 -- filebrowser mappings
 key_mapper('', '<Leader>b', ':Lex<CR>')

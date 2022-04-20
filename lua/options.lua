@@ -21,7 +21,9 @@ vim.wo.relativenumber = true
 vim.wo.signcolumn = 'yes'
 vim.wo.wrap = false
 vim.g.mapleader = ' '
-vim.cmd[[colorscheme dracula]]
+vim.g.sonokai_better_performance = 1
+vim.g.sonokai_diagnostic_virtual_text = 'red'
+vim.cmd[[colorscheme sonokai]]
 vim.g.netrw_liststyle = 3
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
