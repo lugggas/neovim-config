@@ -29,3 +29,4 @@ vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 vim.o.mouse = 'a'
 vim.o.mousefocus = true
+vim.opt.clipboard = 'unnamedplus'
