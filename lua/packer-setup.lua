@@ -23,7 +23,10 @@ packer.startup(function()
     local use = use
     -- add you plugins here like:
     use 'wbthomason/packer.nvim'
-    use 'nvim-treesitter/nvim-treesitter'
+    use { 
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
     use 'sheerun/vim-polyglot'
     use {'prettier/vim-prettier', run = 'yarn install' }
     use 'sainnhe/sonokai'

@@ -14,7 +14,12 @@ cmp.setup({
         { name = 'vsnip' }, -- For vsnip users.
     }, {
         { name = 'buffer' },
-    })
+    }),
+    confirmation = { completeopt = 'menu,menuone,noinsert' },
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+    },
 })
 
   -- Set configuration for specific filetype.
@@ -26,6 +31,7 @@ cmp.setup.filetype('gitcommit', {
 
   -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
     sources = {
       { name = 'buffer' }
     }
@@ -33,6 +39,7 @@ cmp.setup.filetype('gitcommit', {
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
         { name = 'path' }
     }, {

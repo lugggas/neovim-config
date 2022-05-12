@@ -9,7 +9,6 @@ vim.o.undodir = vim.fn.stdpath('config') .. '/undodir'
 vim.o.undofile = true
 vim.o.incsearch = true
 vim.o.hidden = true
-vim.o.completeopt='menuone,noinsert,noselect'
 vim.bo.autoindent = true
 vim.bo.smartindent = true
 vim.o.tabstop = 4

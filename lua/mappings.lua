@@ -21,6 +21,11 @@ key_mapper('', '<up>', '<nop>')
 key_mapper('', '<down>', '<nop>')
 key_mapper('', '<left>', '<nop>')
 key_mapper('', '<right>', '<nop>')
+key_mapper('i', '<up>', '<nop>')
+key_mapper('i', '<down>', '<nop>')
+key_mapper('i', '<left>', '<nop>')
+key_mapper('i', '<right>', '<nop>')
+
 
 -- filebrowser mappings
 key_mapper('', '<Leader>b', ':Lex<CR>')
@@ -92,6 +97,8 @@ function set_cmp_mappings(cmp)
             c = cmp.mapping.close(),
         }),
         ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<C-k>'] = cmp.mapping.select_prev_item(),
+        ['<C-j>'] = cmp.mapping.select_next_item(),
     }
 end
 
@@ -101,3 +108,4 @@ return {
     set_local_ts_mappings = set_local_ts_mappings,
     set_cmp_mappings = set_cmp_mappings,
 }
+
