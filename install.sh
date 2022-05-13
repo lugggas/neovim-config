@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PROJECT_FOLDER=$(cd `dirname $0` && pwd)
+
 has_command () {
     if ! command -v $1 &> /dev/null
     then
@@ -8,38 +10,77 @@ has_command () {
     return 0
 
 }
-system_install () {
-    [ has_command brew ] && brew install $1 && return 0
-    [ has_command apt ] && apt install $1 && return 0
-    echo "Couldn't install $1, neither apt nor brew in \$PATH"
-    return -1
+
+set_up_links () {
+    mkdir -p $HOME/.config/nvim/
+    ln -nfs $PROJECT_FOLDER/init.lua $HOME/.config/nvim/init.lua
+    ln -nfs $PROJECT_FOLDER/lua $HOME/.config/nvim/lua
 }
+
+set_up_links
+has_command apt && sudo apt update
+
+# install nvim
+has_command brew && brew install neovim
+if has_command apt; then
+    curl -LO https://github.com/neovim/neovim/releases/download/v0.7.0/nvim-linux64.deb
+    sudo apt install ./nvim-linux64.deb
+    rm -f ./nvim-linux64.deb
+fi
 
 # install nerd fonts
 if [[ "$OSTYPE" == "darwin"* ]]; then
     brew tap homebrew/cask-fonts
     brew install --cask font-hack-nerd-font
 else
-    git clone https://github.com/ryanoasis/nerd-fonts.git
-    cd nerd-fonts
-    ./install.sh
+    if [[ ! -d nerd-fonts ]]; then
+	    git clone https://github.com/ryanoasis/nerd-fonts.git
+        cd nerd-fonts
+        ./install.sh
+        cd -
+    fi
+fi
+
+# install node-js
+if ! has_command npm; then
+    if has_command apt; then
+        # Using Ubuntu
+        curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+        apt install -y nodejs
+    fi
+    has_command brew && brew install node
 fi
 
 # install typescript
 npm install -g typescript typescript-language-server eslint_d eslint
 
 # syntax highlightning
-system_install bat
+has_command brew && brew install bat
+has_command apt && sudo apt install bat -y
 
 # fast grep
-system_install ripgrep
+has_command brew && brew install ripgrep
+has_command apt && sudo apt install ripgrep -y
 
 # smart find
-system_install fd
+has_command brew && brew install fd
+has_command apt && sudo apt install fd-find -y
+
+
+# install rustup
+if ! has_command rustup; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
 
 # better git diff
-system_install git-delta
+cargo install git-delta
 
 # rust-analyzer
 rustup component add rust-src
-system_install rust-analyzer
+if has_command brew; then
+    brew install rust-analyzer
+else
+    mkdir -p ~/.local/bin
+    curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > ~/.local/bin/rust-analyzer
+    chmod +x ~/.local/bin/rust-analyzer
+fi

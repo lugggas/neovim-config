@@ -1,5 +1,5 @@
-require("options")
 require("packer-setup")
+require("options")
 require("treesitter")
 require("lsp-config")
 require("lualine-config")
