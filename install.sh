@@ -52,8 +52,7 @@ if ! has_command npm; then
 fi
 
 # install typescript
-npm install -g typescript typescript-language-server eslint_d eslint
-
+npm install -g typescript typescript-language-server vscode-langservers-extracted
 # syntax highlightning
 has_command brew && brew install bat
 has_command apt && sudo apt install bat -y

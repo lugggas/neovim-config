@@ -33,7 +33,6 @@ packer.startup(function()
     use 'neovim/nvim-lspconfig'
     use 'anott03/nvim-lspinstall'
     use 'nvim-lua/plenary.nvim'
-    use "jose-elias-alvarez/null-ls.nvim"
     use "jose-elias-alvarez/nvim-lsp-ts-utils"
     use {
         'nvim-lualine/lualine.nvim',
