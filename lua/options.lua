@@ -1,5 +1,4 @@
 vim.o.termguicolors = true
-vim.o.syntax = 'on'
 vim.o.errorbells = false
 vim.o.smartcase = true
 vim.o.showmode = false
@@ -29,3 +28,6 @@ vim.g.netrw_winsize = 25
 vim.o.mouse = 'a'
 vim.o.mousefocus = true
 vim.opt.clipboard = 'unnamedplus'
+vim.cmd[[syntax on]]
+vim.opt.foldmethod='expr'
+vim.opt.foldexpr='nvim_treesitter#foldexpr()'

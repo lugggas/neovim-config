@@ -1,8 +1,12 @@
 local configs = require'nvim-treesitter.configs'
 configs.setup {
     ensure_installed = "all",
-        highlight = {
+    highlight = {
         enable = true,
-    }
+        disable = { "yaml" },
+        additional_vim_regex_highlighting = false,
+    },
+    indent = {
+        enable = true,
+    },
 }
-
