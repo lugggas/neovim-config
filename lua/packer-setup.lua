@@ -28,18 +28,21 @@ packer.startup(function()
         run = ':TSUpdate'
     }
     use 'sheerun/vim-polyglot'
-    use {'prettier/vim-prettier', run = 'yarn install' }
+    use { 'prettier/vim-prettier', run = 'yarn install' }
     use 'sainnhe/sonokai'
     use 'neovim/nvim-lspconfig'
     use 'anott03/nvim-lspinstall'
     use 'nvim-lua/plenary.nvim'
-    use "jose-elias-alvarez/nvim-lsp-ts-utils"
+    use 'jose-elias-alvarez/nvim-lsp-ts-utils'
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     -- You don't need to install this if you already have fzf installed
-    use { "junegunn/fzf", run = "./install --all" }
+    use {
+        'junegunn/fzf', 
+        run = './install --all'
+    }
     use { 'ibhagwan/fzf-lua',
       -- optional for icon support
       requires = { 'kyazdani42/nvim-web-devicons' }
@@ -57,7 +60,11 @@ packer.startup(function()
     }
     use 'chrisbra/unicode.vim'
     use 'simrat39/rust-tools.nvim'
-    use {"akinsho/toggleterm.nvim"}
+    use { 'akinsho/toggleterm.nvim' }
+    use {
+        'neoclide/coc.nvim',
+        branch = 'release',
+    }
 end
 )
 
