@@ -31,3 +31,7 @@ vim.opt.clipboard = 'unnamedplus'
 vim.cmd[[syntax on]]
 vim.opt.foldmethod='expr'
 vim.opt.foldexpr='nvim_treesitter#foldexpr()'
+vim.o.hlsearch = false
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+
+

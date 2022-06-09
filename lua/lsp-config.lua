@@ -16,6 +16,8 @@ local function make_init_options()
     return init_options
 end
 
+local default_capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 local default_config = {
     on_attach = function(client, bufnr)
         client.resolved_capabilities.document_formatting = false
@@ -27,7 +29,7 @@ local default_config = {
         mappings.set_local_ts_mappings(bufnr)
         custom_on_attach(client, bufnr)
     end,
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    capabilities = default_capabilities,
     root_dir = util.root_pattern("tsconfig.json", "jsconfig.json"),
     init_options = make_init_options(),
 }
@@ -38,11 +40,13 @@ lspconfig.eslint.setup({
     on_attach = function(client, bufnr)
         custom_on_attach(client, bufnr)
     end,
+    capabilities = default_capabilities,
 })
 
 require('rust-tools').setup({
     server = {
         on_attach = custom_on_attach,
+        capabilities = default_capabilities,
     }
 })
 

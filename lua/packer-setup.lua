@@ -45,7 +45,7 @@ packer.startup(function()
     }
     use { 'ibhagwan/fzf-lua',
       -- optional for icon support
-      requires = { 'kyazdani42/nvim-web-devicons' }
+		requires = { 'kyazdani42/nvim-web-devicons' }
     }
     use {
         'hrsh7th/nvim-cmp',

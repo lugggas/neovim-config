@@ -10,15 +10,25 @@ cmp.setup({
     },
     mapping = mappings.set_cmp_mappings(cmp),
     sources = cmp.config.sources({
+        { name = 'path'},
         { name = 'nvim_lsp' },
-        { name = 'vsnip' }, -- For vsnip users.
-    }, {
         { name = 'buffer' },
     }),
-    confirmation = { completeopt = 'menu,menuone,noinsert' },
+    formatting = {
+        fields = {'menu', 'abbr', 'kind'},
+        format = function(entry, item)
+          local menu_icon = {
+            nvim_lsp = 'λ',
+            buffer = 'Ω',
+            path = '🖫',
+          }
+
+          item.menu = menu_icon[entry.source.name]
+          return item
+        end,
+    },
     window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered()
     },
 })
 
@@ -30,7 +40,7 @@ cmp.setup.filetype('gitcommit', {
 })
 
   -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline('/', {
+cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
       { name = 'buffer' }
@@ -46,4 +56,3 @@ cmp.setup.cmdline(':', {
         { name = 'cmdline' }
     })
 })
-
