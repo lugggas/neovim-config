@@ -33,5 +33,6 @@ vim.opt.foldmethod='expr'
 vim.opt.foldexpr='nvim_treesitter#foldexpr()'
 vim.o.hlsearch = false
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
-
+vim.opt.list = true
+vim.opt.listchars = 'tab:>-,trail:.,extends:>'
 
