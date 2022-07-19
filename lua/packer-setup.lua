@@ -61,6 +61,7 @@ packer.startup(function()
     use 'chrisbra/unicode.vim'
     use 'simrat39/rust-tools.nvim'
     use { 'akinsho/toggleterm.nvim' }
+    use {'neoclide/coc.nvim', branch = 'release'}
 end
 )
 
