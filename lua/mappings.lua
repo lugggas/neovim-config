@@ -35,18 +35,12 @@ key_mapper('', '<Leader>p', "<cmd>lua require('fzf-lua').files()<CR>")
 key_mapper('', '<Leader>f', "<cmd>lua require('fzf-lua').grep_curbuf()<CR>")
 key_mapper('', '<Leader>F', "<cmd>lua require('fzf-lua').grep_project()<CR>")
 
--- lsp mappings
--- key_mapper('n', 'gd', ':lua vim.lsp.buf.definition()<CR>')
--- key_mapper('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>')
--- key_mapper('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>')
--- key_mapper('n', 'gw', ':lua vim.lsp.buf.document_symbol()<CR>')
--- key_mapper('n', 'gW', ':lua vim.lsp.buf.workspace_symbol()<CR>')
--- key_mapper('n', 'gr', ':lua vim.lsp.buf.references()<CR>')
--- key_mapper('n', 'gt', ':lua vim.lsp.buf.type_definition()<CR>')
--- key_mapper('n', 'K', ':lua vim.lsp.buf.hover()<CR>')
--- key_mapper('n', '<c-k>', ':lua vim.lsp.buf.signature_help()<CR>')
--- key_mapper('n', '<leader>af', ':lua vim.lsp.buf.code_action()<CR>')
--- key_mapper('n', '<leader>rn', ':lua vim.lsp.buf.rename()<CR>')
+-- Coc commands
+vim.cmd("command! CMakeExportCompileCommands !cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1")
+vim.cmd("command! CocDefinition call CocActionAsync('jumpDefinition')")
+
+-- Coc key bindings
+key_mapper('', 'gd', ":CocDefinition<CR>")
 
 function define_lsp_commands()
     vim.cmd("command! LspDef lua vim.lsp.buf.definition()")

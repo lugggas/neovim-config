@@ -87,5 +87,9 @@ fi
 
 # clangd the c++ language server
 has_command brew && brew install llvm
-has_command apt && sudo apt-get install clangd-12 -y
+has_command apt && sudo apt install clangd-12 -y
 npm install -g coc-clangd
+
+# cmake for cmake projects
+has_command brew && brew install cmake
+has_command apt && sudo apt install cmake -y
