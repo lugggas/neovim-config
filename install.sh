@@ -73,7 +73,7 @@ if ! has_command rustup; then
 fi
 
 # better git diff
-cargo install --list | grep git-deltaa > /dev/null 2>&1 && cargo install git-delta
+cargo install --list | grep git-delta &> /dev/null && cargo install git-delta
 
 # rust-analyzer
 rustup component add rust-src
@@ -84,3 +84,8 @@ else
     curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > ~/.local/bin/rust-analyzer
     chmod +x ~/.local/bin/rust-analyzer
 fi
+
+# clangd the c++ language server
+has_command brew && brew install llvm
+has_command apt && sudo apt-get install clangd-12 -y
+npm install -g coc-clangd
