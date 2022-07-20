@@ -8,6 +8,8 @@
         }
     },
     "clangd": {
-        "enabled": "true"
+        "enabled": "true",
+        "path": "clangd-12",
+        "disableProgressNotifications": "true"
     }
 }
