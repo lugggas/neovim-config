@@ -23,12 +23,15 @@ packer.startup(function()
     local use = use
     -- add you plugins here like:
     use 'wbthomason/packer.nvim'
-    use { 
+    use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
     use 'sheerun/vim-polyglot'
-    use { 'prettier/vim-prettier', run = 'yarn install' }
+    use {
+        'prettier/vim-prettier',
+        run = 'yarn install'
+    }
     use 'sainnhe/sonokai'
     use 'neovim/nvim-lspconfig'
     use 'anott03/nvim-lspinstall'
@@ -40,7 +43,7 @@ packer.startup(function()
     }
     -- You don't need to install this if you already have fzf installed
     use {
-        'junegunn/fzf', 
+        'junegunn/fzf',
         run = './install --all'
     }
     use { 'ibhagwan/fzf-lua',
@@ -61,7 +64,13 @@ packer.startup(function()
     use 'chrisbra/unicode.vim'
     use 'simrat39/rust-tools.nvim'
     use { 'akinsho/toggleterm.nvim' }
-    use {'neoclide/coc.nvim', branch = 'release'}
+    use {
+        'neoclide/coc.nvim',
+        branch = 'release',
+        run = {
+            ':CocInstall coc-clangd',
+        }
+    }
 end
 )
 

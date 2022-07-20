@@ -233,76 +233,76 @@ require'fzf-lua'.setup {
         actions = {
             -- inherits from 'actions.files', here we can override
             -- or set bind to 'false' to disable a default action
-            ["default"]     = actions.file_edit,
+            ["default"]     = actions.file_edit_or_qf,
             -- custom actions are available too
             ["ctrl-y"]      = function(selected) print(selected[1]) end,
         }
 	},
 	git = {
-    files = {
-		prompt          = 'GitFiles❯ ',
-		cmd             = 'git ls-files --exclude-standard',
-		multiprocess    = true,           -- run command in a separate process
-		git_icons       = true,           -- show git icons?
-		file_icons      = true,           -- show file icons?
-		color_icons     = true,           -- colorize file|git icons
-		-- force display the cwd header line regardles of your current working
-		-- directory can also be used to hide the header when not wanted
-		-- show_cwd_header = true
-    },
-    status = {
-		prompt          = 'GitStatus❯ ',
-		cmd             = "git status -s",
-		previewer       = "git_diff",
-		file_icons      = true,
-		git_icons       = true,
-		color_icons     = true,
-		actions = {
-            -- actions inherit from 'actions.files' and merge
-            ["right"]   = { actions.git_unstage, actions.resume },
-            ["left"]    = { actions.git_stage, actions.resume },
+        files = {
+            prompt          = 'GitFiles❯ ',
+            cmd             = 'git ls-files --exclude-standard',
+            multiprocess    = true,           -- run command in a separate process
+            git_icons       = true,           -- show git icons?
+            file_icons      = true,           -- show file icons?
+            color_icons     = true,           -- colorize file|git icons
+            -- force display the cwd header line regardles of your current working
+            -- directory can also be used to hide the header when not wanted
+            -- show_cwd_header = true
+        },
+        status = {
+            prompt          = 'GitStatus❯ ',
+            cmd             = "git status -s",
+            previewer       = "git_diff",
+            file_icons      = true,
+            git_icons       = true,
+            color_icons     = true,
+            actions = {
+                -- actions inherit from 'actions.files' and merge
+                ["right"]   = { actions.git_unstage, actions.resume },
+                ["left"]    = { actions.git_stage, actions.resume },
+            },
+        },
+        commits = {
+            prompt          = 'Commits❯ ',
+            cmd             = "git log --pretty=oneline --abbrev-commit --color",
+            preview         = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1}",
+            actions = {
+                ["default"] = actions.git_checkout,
+            },
+        },
+        bcommits = {
+            prompt          = 'BCommits❯ ',
+            cmd             = "git log --pretty=oneline --abbrev-commit --color",
+            preview         = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1}",
+            actions = {
+                ["default"] = actions.git_buf_edit,
+                ["ctrl-s"]  = actions.git_buf_split,
+                ["ctrl-v"]  = actions.git_buf_vsplit,
+                ["ctrl-t"]  = actions.git_buf_tabedit,
+            },
+        },
+        branches = {
+            prompt          = 'Branches❯ ',
+            cmd             = "git branch --all --color",
+            preview         = "git log --graph --pretty=oneline --abbrev-commit --color {1}",
+            actions = {
+                ["default"] = actions.git_switch,
+            },
+        },
+        icons = {
+            ["M"]           = { icon = "M", color = "yellow" },
+            ["D"]           = { icon = "D", color = "red" },
+            ["A"]           = { icon = "A", color = "green" },
+            ["R"]           = { icon = "R", color = "yellow" },
+            ["C"]           = { icon = "C", color = "yellow" },
+            ["?"]           = { icon = "?", color = "magenta" },
+            -- override git icons?
+            -- ["M"]        = { icon = "★", color = "red" },
+            -- ["D"]        = { icon = "✗", color = "red" },
+            -- ["A"]        = { icon = "+", color = "green" },
         },
     },
-    commits = {
-		prompt          = 'Commits❯ ',
-		cmd             = "git log --pretty=oneline --abbrev-commit --color",
-		preview         = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1}",
-		actions = {
-            ["default"] = actions.git_checkout,
-        },
-    },
-    bcommits = {
-		prompt          = 'BCommits❯ ',
-		cmd             = "git log --pretty=oneline --abbrev-commit --color",
-		preview         = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1}",
-		actions = {
-            ["default"] = actions.git_buf_edit,
-            ["ctrl-s"]  = actions.git_buf_split,
-            ["ctrl-v"]  = actions.git_buf_vsplit,
-            ["ctrl-t"]  = actions.git_buf_tabedit,
-        },
-    },
-    branches = {
-		prompt          = 'Branches❯ ',
-		cmd             = "git branch --all --color",
-		preview         = "git log --graph --pretty=oneline --abbrev-commit --color {1}",
-		actions = {
-            ["default"] = actions.git_switch,
-        },
-    },
-    icons = {
-		["M"]           = { icon = "M", color = "yellow" },
-		["D"]           = { icon = "D", color = "red" },
-		["A"]           = { icon = "A", color = "green" },
-		["R"]           = { icon = "R", color = "yellow" },
-		["C"]           = { icon = "C", color = "yellow" },
-		["?"]           = { icon = "?", color = "magenta" },
-		-- override git icons?
-		-- ["M"]        = { icon = "★", color = "red" },
-		-- ["D"]        = { icon = "✗", color = "red" },
-		-- ["A"]        = { icon = "+", color = "green" },
-    },
-	},
 	grep = {
         prompt            = 'Rg❯ ',
         input_prompt      = 'Grep For❯ ',

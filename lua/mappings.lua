@@ -103,7 +103,7 @@ function set_cmp_mappings(cmp)
             else
                 fallback()
             end
-        end, { 'i', 's' }),    
+        end, { 'i', 's' }),   
     }
 end
 
