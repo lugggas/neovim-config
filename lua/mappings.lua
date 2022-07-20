@@ -35,12 +35,9 @@ key_mapper('', '<Leader>p', "<cmd>lua require('fzf-lua').files()<CR>")
 key_mapper('', '<Leader>f', "<cmd>lua require('fzf-lua').grep_curbuf()<CR>")
 key_mapper('', '<Leader>F', "<cmd>lua require('fzf-lua').grep_project()<CR>")
 
--- Coc commands
+-- Cmake commands
 vim.cmd("command! CMakeExportCompileCommands !cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1")
-vim.cmd("command! CocDefinition call CocActionAsync('jumpDefinition')")
 
--- Coc key bindings
-key_mapper('', 'gd', ":CocDefinition<CR>")
 
 function define_lsp_commands()
     vim.cmd("command! LspDef lua vim.lsp.buf.definition()")

@@ -16,7 +16,6 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.wo.number = true
 vim.wo.relativenumber = true
-vim.wo.signcolumn = 'yes'
 vim.wo.wrap = false
 vim.g.mapleader = ' '
 vim.g.sonokai_better_performance = 1
@@ -35,4 +34,8 @@ vim.o.hlsearch = false
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 vim.opt.list = true
 vim.opt.listchars = 'tab:>-,trail:.,extends:>'
-
+vim.opt.shortmess:append({ c = true })
+vim.opt.signcolumn = 'number'
+vim.opt.updatetime = 300
+vim.opt.cmdheight = 2
+vim.opt.encoding = 'utf-8'
