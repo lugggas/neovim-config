@@ -45,6 +45,7 @@ lspconfig.clangd.setup({
     capabilities = default_capabilities,
     cmd = { "clangd-12", "--background-index" },
 })
+lspconfig.hls.setup(default_config)
 
 require('rust-tools').setup({
     server = default_config

@@ -92,3 +92,9 @@ has_command apt && sudo apt install clangd-12 -y
 # cmake for cmake projects
 has_command brew && brew install cmake
 has_command apt && sudo apt install cmake -y
+
+# haskell
+if ! has_command ghcup; then
+    curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+fi
+ghcup install hls
