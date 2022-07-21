@@ -64,6 +64,10 @@ packer.startup(function()
     use 'chrisbra/unicode.vim'
     use 'simrat39/rust-tools.nvim'
     use { 'akinsho/toggleterm.nvim' }
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
 end
 )
 
